@@ -1,3 +1,5 @@
+from src.utils.helper_geo import get_lat_long_centre
+
 import pandas as pd
 import geopandas as gpd
 import branca.colormap as cm
@@ -63,8 +65,21 @@ gdf_ward = df_camden[['geometry']]
 gdf_ward = gpd.GeoDataFrame(data=gdf_ward)
 gdf_ward = gdf_ward.drop_duplicates().reset_index()
 
+# set projection for accurate centroid mapping
+centroid = gdf_ward.centroid
+centroid = list(zip(list(centroid.x), list(centroid.y)))
+centroid = get_lat_long_centre(geolocations=centroid)
+# reverse ordering for centering map
+centroid = (centroid[1], centroid[0])
+
 # make map and add colourbar
-slider_map = folium.Map(min_zoom=8, max_bounds=True, tiles='cartodbpositron')
+# - can then add some prediction on crime levels in future
+# - add labels of wards
+# - add popups of crime level numbers
+slider_map = folium.Map(location=centroid,
+                        zoom_start=13,
+                        max_bounds=True,
+                        tiles='cartodbpositron')
 _ = TimeSliderChoropleth(data=gdf_ward.to_json(),
                          styledict=style_dict).add_to(slider_map)
 _ = cmap.add_to(slider_map)
