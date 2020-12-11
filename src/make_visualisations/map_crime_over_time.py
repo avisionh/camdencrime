@@ -1,12 +1,13 @@
 from src.utils.helper_geo import get_lat_long_centre
 
+import os
 import pandas as pd
 import geopandas as gpd
 import branca.colormap as cm
 import folium
 from folium.plugins import TimeSliderChoropleth
 
-DATA_FOLDER = 'data/raw/'
+DATA_FOLDER = os.environ.get('DIR_DATA_RAW')
 DATA_CRIME = 'On_Street_Crime_In_Camden.csv'
 DATA_MAP = 'geo_export_d270a7b6-0fb4-4fdc-9ed6-15853f2fa0d1.shp'
 DATA_LIGHTING = 'geo_export_e87e8b43-cf73-48e4-ad5c-692f56b45394.shp'
