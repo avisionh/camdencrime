@@ -7,46 +7,21 @@ import branca.colormap as cm
 import folium
 from folium.plugins import TimeSliderChoropleth
 
-DATA_FOLDER = os.environ.get('DIR_DATA_RAW')
-DATA_CRIME = 'On_Street_Crime_In_Camden.csv'
-DATA_MAP = 'geo_export_d270a7b6-0fb4-4fdc-9ed6-15853f2fa0d1.shp'
-DATA_LIGHTING = 'geo_export_e87e8b43-cf73-48e4-ad5c-692f56b45394.shp'
-
-df = pd.read_csv(filepath_or_buffer=DATA_FOLDER + '/' + DATA_CRIME,
-                 parse_dates=['Outcome Date', 'Epoch'])
-shp_camden = gpd.read_file(filename=DATA_FOLDER + '/camden_ward_boundary/' + DATA_MAP)
-shp_lighting = gpd.read_file(filename=DATA_FOLDER + '/camden_street_lighting/' + DATA_LIGHTING)
-
-# count number of incidents per ward per date
-df_transform = df.value_counts(subset=['Outcome Date', 'Ward Name']).reset_index()
-df_transform = df_transform.rename(columns={0: 'Crime Incidences'})
-df_transform = df_transform.sort_values(by=['Ward Name', 'Outcome Date'], axis=0)
-
-# remove NaT from Outcome Date column
-df_transform = df_transform.dropna(subset=['Outcome Date'])
-
-
-# join between df_crime and shp_camden on ward_name
-# check they are consistent
-crime_wards = df_transform['Ward Name'].unique()
-boundary_wards = shp_camden['name'].unique()
-len(crime_wards) == len(boundary_wards)
-crime_wards.sort() == boundary_wards.sort()
-
-df_camden = df_transform.merge(right=shp_camden, how='left', left_on='Ward Name', right_on='name')
-
-# convert Outcome Date to unix time in nanoseconds so can output html
-df_camden['Outcome Sec'] = df_camden['Outcome Date'].astype(int) / 10**9
-df_camden['Outcome Sec'] = df_camden['Outcome Sec'].astype(int).astype(str)
-df_camden = df_camden[['Outcome Sec', 'Ward Name', 'Crime Incidences', 'geometry']]
+FOLDER_PROCESSED = os.environ.get('DIR_DATA_PROCESSED')
+DATA_CRIME_MAP = 'df_crime_map.pkl'
 
 # plotting on map
 # https://www.jumpingrivers.com/blog/interactive-maps-python-covid-19-spread/
-# define colour map w.r.t Crime Incidences
-max_colour = max(df_camden['Crime Incidences'])
-min_colour = min(df_camden['Crime Incidences'])
+
+df_camden = pd.read_pickle(filepath_or_buffer=FOLDER_PROCESSED + "/" + DATA_CRIME_MAP)
+# remove NaT from Outcome Date column
+df_camden = df_camden.dropna(subset=['Outcome Sec'])
+
+# define colour map w.r.t Crime Rate
+max_colour = max(df_camden['Crime Rate'])
+min_colour = min(df_camden['Crime Rate'])
 cmap = cm.linear.YlOrRd_09.scale(min_colour, max_colour)
-df_camden['Colour'] = df_camden['Crime Incidences'].map(cmap)
+df_camden['Colour'] = df_camden['Crime Rate'].map(cmap)
 
 # construct style dictionary for choropleth mapping
 ward_list = df_camden['Ward Name'].unique().tolist()
@@ -62,8 +37,7 @@ for i in ward_idx:
     style_dict[str(i)] = inner_dict
 
 # make df with features of each ward
-gdf_ward = df_camden[['geometry']]
-gdf_ward = gpd.GeoDataFrame(data=gdf_ward)
+gdf_ward = gpd.GeoDataFrame(data=df_camden[['geometry']])
 gdf_ward = gdf_ward.drop_duplicates().reset_index()
 
 # set projection for accurate centroid mapping
@@ -84,5 +58,5 @@ slider_map = folium.Map(location=centroid,
 _ = TimeSliderChoropleth(data=gdf_ward.to_json(),
                          styledict=style_dict).add_to(slider_map)
 _ = cmap.add_to(slider_map)
-cmap.caption = "Number of crime incidences per Ward"
+cmap.caption = "Crime Rate per Ward"
 slider_map.save(outfile='outputs/timesliderchoropleth_crimeincidences.html')
