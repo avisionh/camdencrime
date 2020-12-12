@@ -41,11 +41,9 @@ gdf_ward = gpd.GeoDataFrame(data=df_camden[['geometry']])
 gdf_ward = gdf_ward.drop_duplicates().reset_index()
 
 # set projection for accurate centroid mapping
-centroid = gdf_ward.centroid
-centroid = list(zip(list(centroid.x), list(centroid.y)))
+centroids = gdf_ward.centroid
+centroid = list(zip(list(centroids.y), list(centroids.x)))
 centroid = get_lat_long_centre(geolocations=centroid)
-# reverse ordering for centering map
-centroid = (centroid[1], centroid[0])
 
 # make map and add colourbar
 # - can then add some prediction on crime levels in future
@@ -55,8 +53,21 @@ slider_map = folium.Map(location=centroid,
                         zoom_start=13,
                         max_bounds=True,
                         tiles='cartodbpositron')
+
+# add Vega plots for each Ward - consider how we can split by time (style_dict)
+# - https://python-visualization.github.io/folium/quickstart.html
+# - https://stackoverflow.com/a/42530321/13416265
+feature_group = folium.FeatureGroup("Locations")
+list_iterate = zip(list(centroids.y), list(centroids.x), ward_list)
+for lon, lat, name in list_iterate:
+    feature_group.add_child(folium.Marker(location=[lon, lat], popup=name))
+
+_ = slider_map.add_child(feature_group)
+
+# add time slider for choropleth
 _ = TimeSliderChoropleth(data=gdf_ward.to_json(),
                          styledict=style_dict).add_to(slider_map)
 _ = cmap.add_to(slider_map)
+
 cmap.caption = "Crime Rate per Ward"
 slider_map.save(outfile='outputs/timesliderchoropleth_crimeincidences.html')

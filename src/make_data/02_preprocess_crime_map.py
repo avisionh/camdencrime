@@ -30,5 +30,5 @@ df_crime_map = df_crime.merge(right=shp_camden,
 df_crime_map['Outcome Sec'] = df_crime_map['Outcome Date'].astype(int) / 10**9
 df_crime_map['Outcome Sec'] = df_crime_map['Outcome Sec'].astype(int).astype(str)
 
-# save for mapping
+# save for mapping - cannot save to csv because of special crs feature in geometry column
 df_crime_map.to_pickle(path=FOLDER_PROCESSED + '/df_crime_map.pkl')
