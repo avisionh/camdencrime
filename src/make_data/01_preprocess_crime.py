@@ -55,13 +55,15 @@ df = df.merge(right=df_pop,
               how='left',
               on=["Ward Code", "Ward Name", "Date Year"],
               validate='many_to_one')
+df = df.rename(columns={"Date Year": "Outcome Year",
+                        "Date Month": "Outcome Month"})
 
 # grouping by Category and Outcome Category to get crime counts
 df_category = count_sort_crime(df=df,
-                               date_col=["Outcome Date", "Date Year", "Date Month"],
+                               date_col=["Outcome Date", "Outcome Year", "Outcome Month"],
                                group_cols=["Ward Name", "Category", "Population"])
 df_outcome = count_sort_crime(df=df,
-                              date_col=["Outcome Date", "Date Year", "Date Month"],
+                              date_col=["Outcome Date", "Outcome Year", "Outcome Month"],
                               group_cols=["Ward Name", "Outcome Category", "Population"])
 
 # get proportions for comparing across wards
