@@ -70,12 +70,6 @@ df_outcome = count_sort_crime(df=df,
 df_category["Crime Rate"] = df_category["Crime Incidences"] / df_category["Population"]
 df_outcome["Crime Rate"] = df_outcome["Crime Incidences"] / df_outcome["Population"]
 
-# get year and month
-df_category["Date Year"] = pd.DatetimeIndex(data=df_category["Outcome Date"]).year
-df_category["Date Month"] = pd.DatetimeIndex(data=df_category["Outcome Date"]).month
-df_outcome["Date Year"] = pd.DatetimeIndex(data=df_outcome["Outcome Date"]).year
-df_outcome["Date Month"] = pd.DatetimeIndex(data=df_outcome["Outcome Date"]).month
-
 # output to files for visualisation
 data_dict = {"df_category": df_category, "df_outcome": df_outcome}
 for k, v in data_dict.items():
