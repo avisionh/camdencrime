@@ -3,7 +3,7 @@
 
 title: Camden Crime
 author: Avision Ho
-logo: logo_camden.png
+logo: images/logo_camden.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

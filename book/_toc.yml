@@ -4,6 +4,6 @@
 - file: intro
 - file: content
   sections:
-    - file: markdown
-    - file: notebooks
-    - file: ../notebooks/01_missing_data
+    - file: 01_eda/01_missing_data
+    - file: 01_eda/02_crime_ward
+    - file: 01_eda/03_crime_category
