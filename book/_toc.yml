@@ -7,3 +7,6 @@
     - file: 01_eda/01_missing_data
     - file: 01_eda/02_crime_ward
     - file: 01_eda/03_crime_category
+- file:
+  sections:
+    - file: 02_map/01_crime_ward_time
