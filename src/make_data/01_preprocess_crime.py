@@ -31,12 +31,12 @@ df_pop = pd.read_excel(io=FOLDER_RAW + "/" + DATA_POP,
 # unpivot/melt population data
 df_pop = pd.melt(frame=df_pop,
                  id_vars=["Ward Code", "Ward Name"],
-                 var_name="Date Year",
+                 var_name="Outcome Year",
                  value_name="Population")
 
 # extract year
-df["Date Year"] = pd.DatetimeIndex(data=df["Outcome Date"]).year
-df["Date Month"] = pd.DatetimeIndex(data=df["Outcome Date"]).month
+df["Outcome Year"] = pd.DatetimeIndex(data=df["Outcome Date"]).year
+df["Outcome Month"] = pd.DatetimeIndex(data=df["Outcome Date"]).month
 
 # explore unique values of possible categorical variables
 # to confirm if they are categorical or id variables;
@@ -48,15 +48,13 @@ unique_categories = [df[x].dropna().unique() for x in categorical_variables]
 unique_categories = [sorted(x) for x in unique_categories]
 
 # join on population data
-df = df.dropna(subset=["Date Year"])
-df["Date Year"] = df["Date Year"].astype(int)
-df_pop["Date Year"] = df_pop["Date Year"].astype(int)
+df = df.dropna(subset=["Outcome Year"])
+df["Outcome Year"] = df["Outcome Year"].astype(int)
+df_pop["Outcome Year"] = df_pop["Outcome Year"].astype(int)
 df = df.merge(right=df_pop,
               how='left',
-              on=["Ward Code", "Ward Name", "Date Year"],
+              on=["Ward Code", "Ward Name", "Outcome Year"],
               validate='many_to_one')
-df = df.rename(columns={"Date Year": "Outcome Year",
-                        "Date Month": "Outcome Month"})
 
 # grouping by Category and Outcome Category to get crime counts
 df_category = count_sort_crime(df=df,
@@ -71,6 +69,6 @@ df_category["Crime Rate"] = df_category["Crime Incidences"] / df_category["Popul
 df_outcome["Crime Rate"] = df_outcome["Crime Incidences"] / df_outcome["Population"]
 
 # output to files for visualisation
-data_dict = {"df_category": df_category, "df_outcome": df_outcome}
+data_dict = {"df_category": df_category, "df_outcome": df_outcome, "df_pop": df_pop}
 for k, v in data_dict.items():
     v.to_csv(path_or_buf=FOLDER_INTERIM + "/" + k + ".csv", index=False)
