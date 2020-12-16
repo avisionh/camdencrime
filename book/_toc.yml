@@ -1,0 +1,9 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+- file: content
+  sections:
+    - file: 01_eda/01_missing_data
+    - file: 01_eda/02_crime_ward
+    - file: 01_eda/03_crime_category
