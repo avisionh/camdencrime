@@ -6,7 +6,7 @@ FOLDER_RAW = os.environ.get('DIR_DATA_RAW')
 FOLDER_INTERIM = os.environ.get('DIR_DATA_INTERIM')
 FOLDER_PROCESSED = os.environ.get('DIR_DATA_PROCESSED')
 DATA_CRIME_CATEGORY = 'df_category.csv'
-DATA_MAP = 'geo_export_d270a7b6-0fb4-4fdc-9ed6-15853f2fa0d1.shp'
+DATA_MAP = 'geo_export_aba7f1fe-addd-4eff-a2f6-fa63b09e4d6f.shp'
 
 
 # load data
