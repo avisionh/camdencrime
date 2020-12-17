@@ -1,4 +1,4 @@
 pytest_plugins = [
-    "tests.fixtures.fixture_helper_geo",
-    "tests.fixtures.fixture_preprocess",
+    "fixtures.fixture_helper_geo",
+    "fixtures.fixture_preprocess",
 ]

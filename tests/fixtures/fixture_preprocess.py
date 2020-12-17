@@ -34,3 +34,17 @@ def df_group():
                               'Category': ['Drugs', 'Other theft'],
                               'Crime Incidences': [2, 1],
                               'Population': [22322, 34655]})
+
+
+@pytest.fixture
+def df_messy_names():
+    return pd.DataFrame({'Column With Spaces': [1, 2, 3, 4, 5],
+                         'Column-With-Hyphens&Others/': [6, 7, 8, 9, 10],
+                         'Too    Many Spaces': [11, 12, 13, 14, 15]})
+
+
+@pytest.fixture
+def df_clean_names():
+    return pd.DataFrame({'column_with_spaces': [1, 2, 3, 4, 5],
+                         'column_with_hyphens_others': [6, 7, 8, 9, 10],
+                         'too_many_spaces': [11, 12, 13, 14, 15]})
