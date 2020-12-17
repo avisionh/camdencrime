@@ -1,3 +1,4 @@
+from src.utils.preprocess import standardise_column_names
 import os
 import pandas as pd
 
@@ -26,5 +27,9 @@ df_pop = pd.melt(frame=df_pop,
                  var_name="Outcome Year",
                  value_name="Population")
 
+# standardise column names
+df_pop = standardise_column_names(df=df_pop, remove_punct=True)
+df_pop = df_pop.drop(columns=["unnamed_0"])
+
 # export to csv
-df_pop.to_csv(path_or_buf="outputs/wards.csv")
+df_pop.to_csv(path_or_buf="outputs/wards.csv", index=False)
