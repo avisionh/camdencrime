@@ -2,14 +2,29 @@ import os
 import pandas as pd
 
 FOLDER_RAW = os.getenv('DIR_DATA_RAW')
-DATA_WARD = 'On_Street_Crime_In_Camden.csv'
+DATA_POP = 'Population_20Projections_20_latest_20GLA_20set_.xlsx'
 
 # load data
-df_ward = pd.read_csv(filepath_or_buffer=FOLDER_RAW + "/" + DATA_WARD)
+df_pop = pd.read_excel(io=FOLDER_RAW + "/" + DATA_POP,
+                       sheet_name="WardP Summry",
+                       header=None,
+                       names=['Ward Code',
+                              'Ward Name',
+                              '2015',
+                              '2016',
+                              '2017',
+                              '2018',
+                              '2019',
+                              '2020'],
+                       usecols="B,D,K:P",
+                       skiprows=5,
+                       nrows=18)
 
-# get unique wards
-wards = df_ward["Ward Name"].unique()
-wards = pd.DataFrame(data={"ward_name": wards})
+# unpivot/melt population data
+df_pop = pd.melt(frame=df_pop,
+                 id_vars=["Ward Code", "Ward Name"],
+                 var_name="Outcome Year",
+                 value_name="Population")
 
 # export to csv
-wards.to_csv(path_or_buf="outputs/wards.csv")
+df_pop.to_csv(path_or_buf="outputs/wards.csv")
