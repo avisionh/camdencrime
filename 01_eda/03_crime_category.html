@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crime by category &#8212; Camden Crime</title>
+    <title>1.3. Explore Crime by Categories &#8212; Camden Crime</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,7 +55,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Explore Crime Categories" href="02_crime_ward.html" />
+    <link rel="next" title="2. Map" href="../02_map.html" />
+    <link rel="prev" title="1.2. Explore Crime by Location" href="02_crime_ward.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -94,28 +95,37 @@
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="../content.html">
-   Exploratory Data Analysis
+  <a class="reference internal" href="../01_eda.html">
+   1. Exploratory Data Analysis
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="01_missing_data.html">
-     Exploring missing data
+     1.1. Exploring missing data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_crime_ward.html">
-     Explore Crime Categories
+     1.2. Explore Crime by Location
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Crime by category
+     1.3. Explore Crime by Categories
     </a>
    </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02_map.html">
+   2. Map
+  </a>
+  <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="#crime-by-category-by-year">
-     Crime by category by year
+    <a class="reference internal" href="../02_map/01_crime_ward_time.html">
+     2.1. Explore Crime on a Map
     </a>
    </li>
   </ul>
@@ -185,7 +195,9 @@
             href="https://github.com/avisionh/camdencrime/issues/new?title=Issue%20on%20page%20%2F01_eda/03_crime_category.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
+        <a class="edit-button" href="https://github.com/avisionh/camdencrime/edit/main/docs/01_eda/03_crime_category.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -225,14 +237,14 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Crime by category
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crime-by-category">
+   1.3.1. Crime by category
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#crime-by-category-by-year">
-   Crime by category by year
+   1.3.2. Crime by category by year
   </a>
  </li>
 </ul>
@@ -292,8 +304,14 @@
 </div>
 </div>
 </div>
+<div class="section" id="explore-crime-by-categories">
+<h1><span class="section-number">1.3. </span>Explore Crime by Categories<a class="headerlink" href="#explore-crime-by-categories" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we explore further general crime rates by at Camden through the categories of crime:</p>
+<ol class="simple">
+<li><p>Bar plot - to understand the crime rates.</p></li>
+</ol>
 <div class="section" id="crime-by-category">
-<h1>Crime by category<a class="headerlink" href="#crime-by-category" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.3.1. </span>Crime by category<a class="headerlink" href="#crime-by-category" title="Permalink to this headline">¶</a></h2>
 <p>We see that the following categories of crime have the highest rates of offence.</p>
 <ol class="simple">
 <li><p>Violence and sexual offences</p></li>
@@ -318,7 +336,7 @@
 </div>
 </div>
 <div class="section" id="crime-by-category-by-year">
-<h1>Crime by category by year<a class="headerlink" href="#crime-by-category-by-year" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.3.2. </span>Crime by category by year<a class="headerlink" href="#crime-by-category-by-year" title="Permalink to this headline">¶</a></h2>
 <p>Similar to what was seen for all years, across each year, the highest rates of crime committed were:</p>
 <ol class="simple">
 <li><p>Violence and sexual offences</p></li>
@@ -342,6 +360,7 @@
 </div>
 </div>
 <p>Trying to do crime by year, by ward and by category gets busy so explore alternative methods - a graph database!</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -372,7 +391,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="02_crime_ward.html" title="previous page">Explore Crime Categories</a>
+    <a class='left-prev' id="prev-link" href="02_crime_ward.html" title="previous page"><span class="section-number">1.2. </span>Explore Crime by Location</a>
+    <a class='right-next' id="next-link" href="../02_map.html" title="next page"><span class="section-number">2. </span>Map</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
