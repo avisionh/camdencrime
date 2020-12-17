@@ -1,3 +1,5 @@
+from src.utils.preprocess import standardise_column_names
+
 import os
 import pandas as pd
 import geopandas as gpd
@@ -32,5 +34,8 @@ df_out = df_crime_lamp[["Outcome Date",
                         "Population",
                         "Crime Rate",
                         "lamp_type",
-                        "count_lams",
+                        "count_lamps",
                         "mean_wattage"]]
+df_out = standardise_column_names(df=df_out, remove_punct=True)
+df_out.to_csv(path_or_buf=FOLDER_PROCESSED + "/" + "df_crime_lamp.csv",
+              index=False)

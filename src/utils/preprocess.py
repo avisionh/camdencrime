@@ -47,5 +47,5 @@ def standardise_column_names(df: pd.DataFrame, remove_punct: bool = True) -> pd.
         if c_mod[-1] == '_':
             c_mod = c_mod[:-1]
         c_mod = re.sub(r'\_+', '_', c_mod)
-        df.rename({c: c_mod}, inplace=True, axis=1)
+        df = df.rename(columns={c: c_mod}, inplace=False)
     return df
