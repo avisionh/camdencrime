@@ -720,6 +720,7 @@ MigrationBackup/
 # Ignore the contents of the `data` folder, except for the `README.md` file
 data/*
 !data/README.md
+!data/neo4j
 
 # Ignore the contents of the `data` sub-folders, except for their `.gitkeep` files; adapted from
 # https://stackoverflow.com/a/20652768
