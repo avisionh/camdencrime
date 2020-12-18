@@ -9,8 +9,8 @@ on:
     # unrelated files, you can make this run only if a file within that specific
     # folder has been modified.
     #
-    paths:
-    - book/**
+    #paths:
+    #- book/**
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
@@ -28,6 +28,10 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+
+    # Use paths from .envrc
+    - name: Use .envrc file
+      uses: HatsuneMiku3939/direnv-action@v1
 
     # Clear gh-pages branch cache
     - name: Clear gh-pages cache
