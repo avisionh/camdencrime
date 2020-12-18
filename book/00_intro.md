@@ -2,6 +2,8 @@
 
 Welcome to this book that explores Camden crime data.
 
+![](images/camden_lock.jpg)
+
 The book is split into the following sections:
 1. **Intro:** Overview of project including questions it can answer and data sources.
 1. **Data:** Brief glance at data and steps to clean it. Mainly for technical audiences.
