@@ -1,13 +1,22 @@
 # Table of content
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
-- file: intro
+- file: 00_intro
   numbered: true
-- file: 01_eda
   sections:
-    - file: 01_eda/01_missing_data
-    - file: 01_eda/02_crime_ward
-    - file: 01_eda/03_crime_category
-- file: 02_map
+    - file: 00_intro/01_data_about
+    - file: 00_intro/02_data_questions
+    - file: 00_intro/03_assumptions
+- file: 01_data_raw
   sections:
-    - file: 02_map/01_crime_ward_time
+    - file: 01_data_raw/01_view
+    - file: 01_data_raw/02_clean
+- file: 02_eda
+  sections:
+    - file: 02_eda/01_missing_data
+    - file: 02_eda/02_crime_ward
+    - file: 02_eda/03_crime_category
+- file: 03_map
+  sections:
+    - file: 03_map/01_crime_ward_time
+- file: 04_next_steps
