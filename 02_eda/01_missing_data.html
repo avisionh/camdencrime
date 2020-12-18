@@ -325,17 +325,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">9</span><span class="n">d6edbfeaf89</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">FOLDER_RAW</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">DATA_CRIME</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                  <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Outcome Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Epoch&quot;</span><span class="p">])</span>
-
-<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;NoneType&#39; and &#39;str&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="exploring-missing-data">
 <h1><span class="section-number">5.1. </span>Exploring missing data<a class="headerlink" href="#exploring-missing-data" title="Permalink to this headline">¶</a></h1>
@@ -349,6 +338,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/01_missing_data_3_1.png" src="../_images/01_missing_data_3_1.png" />
+</div>
 </div>
 <p>In the below barchart, we see that about 20% of our data in the <code class="docutils literal notranslate"><span class="pre">Outcome</span> <span class="pre">Category</span></code> and <code class="docutils literal notranslate"><span class="pre">Outcome</span> <span class="pre">Date</span></code> columns are missing. This is a fairly substantial proportion and is worth bearing in mind in the analysis ahead where we consider non-missing data only. Indeed the counts of missing data in these two columns are the same and in the immediately previous plot, we find when <code class="docutils literal notranslate"><span class="pre">Outcome</span> <span class="pre">Date</span></code> is missing then <code class="docutils literal notranslate"><span class="pre">Outcome</span> <span class="pre">Category</span></code> is also. Interestingly, <code class="docutils literal notranslate"><span class="pre">Category</span></code> is not missing also.</p>
 <div class="cell docutils container">
@@ -356,6 +351,12 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msno</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Context&quot;</span><span class="p">,</span> <span class="s2">&quot;Outcome Category&quot;</span><span class="p">,</span> <span class="s2">&quot;Outcome Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Location Subtype&quot;</span><span class="p">,</span> <span class="s2">&quot;Persistent ID&quot;</span><span class="p">]])</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/01_missing_data_5_1.png" src="../_images/01_missing_data_5_1.png" />
 </div>
 </div>
 <p>Further exploring the relationship in missing values, we identify the correlation between missing values in each of the columns - how strongly the presence or absence of one variable affects the presence of another.</p>
@@ -368,6 +369,12 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msno</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/01_missing_data_7_1.png" src="../_images/01_missing_data_7_1.png" />
 </div>
 </div>
 <hr class="docutils" />

@@ -348,20 +348,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">944</span><span class="n">bf16676c8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df_crime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">FOLDER_RAW</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">DATA_CRIME</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                        <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Outcome Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Epoch&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df_pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">io</span><span class="o">=</span><span class="n">FOLDER_RAW</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">DATA_POP</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                        <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;WardP Summry&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                        <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-
-<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;NoneType&#39; and &#39;str&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="viewing-the-data">
 <h1><span class="section-number">4.1. </span>Viewing the data<a class="headerlink" href="#viewing-the-data" title="Permalink to this headline">¶</a></h1>
@@ -387,6 +373,166 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Category</th>
+      <th>Street ID</th>
+      <th>Street Name</th>
+      <th>Context</th>
+      <th>Outcome Category</th>
+      <th>Outcome Date</th>
+      <th>Service</th>
+      <th>Location Subtype</th>
+      <th>ID</th>
+      <th>Persistent ID</th>
+      <th>Epoch</th>
+      <th>Ward Code</th>
+      <th>Ward Name</th>
+      <th>Easting</th>
+      <th>Northing</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>Spatial Accuracy</th>
+      <th>Last Uploaded</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>72295</th>
+      <td>Violence and sexual offences</td>
+      <td>964951</td>
+      <td>On or near Granary Street</td>
+      <td>NaN</td>
+      <td>Under investigation</td>
+      <td>2018-11-01</td>
+      <td>Police Force</td>
+      <td>NaN</td>
+      <td>69923957</td>
+      <td>b448b5ba18f667c0c41578896c1413bbb118a67a119c75...</td>
+      <td>2018-11-01</td>
+      <td>E05000143</td>
+      <td>St Pancras and Somers Town</td>
+      <td>529735.22</td>
+      <td>183678.71</td>
+      <td>-0.130788</td>
+      <td>51.537113</td>
+      <td>This is only an approximation of where the cri...</td>
+      <td>16/01/2019</td>
+      <td>(51.537113, -0.130788)</td>
+    </tr>
+    <tr>
+      <th>63873</th>
+      <td>Theft from the person</td>
+      <td>965109</td>
+      <td>On or near Chalk Farm Road</td>
+      <td>NaN</td>
+      <td>Under investigation</td>
+      <td>2019-06-01</td>
+      <td>Police Force</td>
+      <td>NaN</td>
+      <td>75346137</td>
+      <td>eff0e590a6e1d1bb8b63982f979576456d61c804109523...</td>
+      <td>2019-06-01</td>
+      <td>E05000130</td>
+      <td>Camden Town with Primrose Hill</td>
+      <td>528361.22</td>
+      <td>184320.67</td>
+      <td>-0.150354</td>
+      <td>51.543196</td>
+      <td>This is only an approximation of where the cri...</td>
+      <td>28/10/2019</td>
+      <td>(51.543196, -0.150354)</td>
+    </tr>
+    <tr>
+      <th>100452</th>
+      <td>Burglary</td>
+      <td>967848</td>
+      <td>On or near Hodes Row</td>
+      <td>NaN</td>
+      <td>Court result unavailable</td>
+      <td>2016-10-01</td>
+      <td>Police Force</td>
+      <td>NaN</td>
+      <td>48516072</td>
+      <td>e9f5c6d9f6e1fe8ccd68da2793b0e93cfeca87fd6bcd9d...</td>
+      <td>2016-04-01</td>
+      <td>E05000134</td>
+      <td>Gospel Oak</td>
+      <td>528010.21</td>
+      <td>185549.72</td>
+      <td>-0.154966</td>
+      <td>51.554321</td>
+      <td>This is only an approximation of where the cri...</td>
+      <td>11/07/2018</td>
+      <td>(51.554321, -0.154966)</td>
+    </tr>
+    <tr>
+      <th>3195</th>
+      <td>Public order</td>
+      <td>965357</td>
+      <td>On or near Springfield Walk</td>
+      <td>NaN</td>
+      <td>Investigation complete; no suspect identified</td>
+      <td>2018-01-01</td>
+      <td>Police Force</td>
+      <td>NaN</td>
+      <td>62659107</td>
+      <td>18446443d68fcd10c190003334a190a30f36913428f451...</td>
+      <td>2018-01-01</td>
+      <td>E05000140</td>
+      <td>Kilburn</td>
+      <td>525571.29</td>
+      <td>183598.75</td>
+      <td>-0.190822</td>
+      <td>51.537335</td>
+      <td>This is only an approximation of where the cri...</td>
+      <td>13/04/2018</td>
+      <td>(51.537335, -0.190822)</td>
+    </tr>
+    <tr>
+      <th>97931</th>
+      <td>Violence and sexual offences</td>
+      <td>967842</td>
+      <td>On or near Mansfield Road</td>
+      <td>NaN</td>
+      <td>Investigation complete; no suspect identified</td>
+      <td>2016-02-01</td>
+      <td>Police Force</td>
+      <td>NaN</td>
+      <td>45572039</td>
+      <td>45490e377849b18772082bb02d74f38a5d63bdeba6ca79...</td>
+      <td>2015-12-01</td>
+      <td>E05000134</td>
+      <td>Gospel Oak</td>
+      <td>528007.87</td>
+      <td>185498.85</td>
+      <td>-0.155056</td>
+      <td>51.553872</td>
+      <td>This is only an approximation of where the cri...</td>
+      <td>05/05/2016</td>
+      <td>(51.553872, -0.155056)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="camden-population-projections">
@@ -402,6 +548,94 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ward Code</th>
+      <th>Ward Name</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+      <th>2020</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>E05000128</td>
+      <td>Belsize</td>
+      <td>13959.21</td>
+      <td>14210.18</td>
+      <td>14308.59</td>
+      <td>14554.40</td>
+      <td>14643.24</td>
+      <td>14704.67</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>E05000129</td>
+      <td>Bloomsbury</td>
+      <td>11530.05</td>
+      <td>11458.64</td>
+      <td>11652.23</td>
+      <td>11890.26</td>
+      <td>11731.53</td>
+      <td>11689.13</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>E05000136</td>
+      <td>Haverstock</td>
+      <td>13545.17</td>
+      <td>13808.57</td>
+      <td>13843.23</td>
+      <td>14160.22</td>
+      <td>14035.79</td>
+      <td>13994.86</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>E05000133</td>
+      <td>Frognal and Fitzjohns</td>
+      <td>13189.08</td>
+      <td>13360.85</td>
+      <td>13692.78</td>
+      <td>14127.59</td>
+      <td>14078.03</td>
+      <td>14116.99</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>E05000131</td>
+      <td>Cantelowes</td>
+      <td>12995.70</td>
+      <td>13403.75</td>
+      <td>13337.70</td>
+      <td>13734.33</td>
+      <td>13742.31</td>
+      <td>13760.46</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="camden-ward-boundary">
@@ -417,6 +651,64 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>descriptio</th>
+      <th>name</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>None</td>
+      <td>Belsize</td>
+      <td>LINESTRING (-0.17512 51.54360, -0.17483 51.544...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>None</td>
+      <td>Bloomsbury</td>
+      <td>LINESTRING (-0.14358 51.52398, -0.14354 51.523...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>None</td>
+      <td>Haverstock</td>
+      <td>LINESTRING (-0.16186 51.54876, -0.16124 51.548...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>None</td>
+      <td>Frognal and Fitzjohns</td>
+      <td>LINESTRING (-0.19040 51.56273, -0.18987 51.562...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>Cantelowes</td>
+      <td>LINESTRING (-0.12910 51.54883, -0.12908 51.548...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="camden-street-lighting">
@@ -443,6 +735,166 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column_hei</th>
+      <th>column_typ</th>
+      <th>descriptio</th>
+      <th>easting</th>
+      <th>heritage_s</th>
+      <th>lamp_type</th>
+      <th>date_last_</th>
+      <th>time_last_</th>
+      <th>latitude</th>
+      <th>local_auth</th>
+      <th>longitude</th>
+      <th>northing</th>
+      <th>organisati</th>
+      <th>postcode</th>
+      <th>spatial_ac</th>
+      <th>street_nam</th>
+      <th>switch_reg</th>
+      <th>ward_name</th>
+      <th>wattage</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8675</th>
+      <td>500.0</td>
+      <td>Lighting Column</td>
+      <td>OPPOSITE 59</td>
+      <td>529594.0</td>
+      <td>No</td>
+      <td>Cosmopolis</td>
+      <td>2020-12-03</td>
+      <td>10:23:46.000</td>
+      <td>51.545560</td>
+      <td>707191</td>
+      <td>-0.132478</td>
+      <td>184615.0</td>
+      <td>http://opendatacommunities.org/id/london-borou...</td>
+      <td>NW1 9UU</td>
+      <td>Plotted By Council Officer</td>
+      <td>CAMDEN MEWS</td>
+      <td>35/18</td>
+      <td>Cantelowes</td>
+      <td>60.0</td>
+      <td>POINT (-0.13248 51.54556)</td>
+    </tr>
+    <tr>
+      <th>9755</th>
+      <td>800.0</td>
+      <td>Lighting Column</td>
+      <td>O/S PUB, 1ST FROM J/W ST PANCRAS WAY</td>
+      <td>529350.0</td>
+      <td>No</td>
+      <td>Cosmopolis</td>
+      <td>2020-12-03</td>
+      <td>10:23:47.000</td>
+      <td>51.541833</td>
+      <td>707476</td>
+      <td>-0.136149</td>
+      <td>184194.0</td>
+      <td>http://opendatacommunities.org/id/london-borou...</td>
+      <td>NW1 0SS</td>
+      <td>Plotted By Council Officer</td>
+      <td>RANDOLPH STREET</td>
+      <td>35/18</td>
+      <td>Cantelowes</td>
+      <td>60.0</td>
+      <td>POINT (-0.13615 51.54183)</td>
+    </tr>
+    <tr>
+      <th>9573</th>
+      <td>800.0</td>
+      <td>Lighting Column</td>
+      <td>OPP NO 30 DRAYTON HOUSE</td>
+      <td>529586.0</td>
+      <td>No</td>
+      <td>Cosmopolis</td>
+      <td>2020-12-03</td>
+      <td>10:23:48.000</td>
+      <td>51.525980</td>
+      <td>708463</td>
+      <td>-0.133395</td>
+      <td>182436.0</td>
+      <td>http://opendatacommunities.org/id/london-borou...</td>
+      <td>NW1 2BE</td>
+      <td>Plotted By Council Officer</td>
+      <td>GORDON STREET</td>
+      <td>35/18</td>
+      <td>Bloomsbury</td>
+      <td>90.0</td>
+      <td>POINT (-0.13340 51.52598)</td>
+    </tr>
+    <tr>
+      <th>11138</th>
+      <td>400.0</td>
+      <td>Lighting Column</td>
+      <td>OPP CHURCH</td>
+      <td>526256.0</td>
+      <td>Yes</td>
+      <td>High Pressure Sodium</td>
+      <td>2020-12-03</td>
+      <td>10:23:36.000</td>
+      <td>51.555339</td>
+      <td>701823</td>
+      <td>-0.180230</td>
+      <td>185619.0</td>
+      <td>http://opendatacommunities.org/id/london-borou...</td>
+      <td>NW3 6UP</td>
+      <td>Plotted By Council Officer</td>
+      <td>CHURCH ROW</td>
+      <td>35/18</td>
+      <td>Frognal and Fitzjohns</td>
+      <td>100.0</td>
+      <td>POINT (-0.18023 51.55534)</td>
+    </tr>
+    <tr>
+      <th>10987</th>
+      <td>500.0</td>
+      <td>Lighting Column</td>
+      <td>O/S 27</td>
+      <td>524618.0</td>
+      <td>No</td>
+      <td>Generic LED Lighting</td>
+      <td>2020-12-03</td>
+      <td>10:23:32.000</td>
+      <td>51.554714</td>
+      <td>70450</td>
+      <td>-0.203883</td>
+      <td>185509.0</td>
+      <td>http://opendatacommunities.org/id/london-borou...</td>
+      <td>NW2 3RJ</td>
+      <td>Plotted By Council Officer</td>
+      <td>MENELIK ROAD</td>
+      <td>35/18</td>
+      <td>Fortune Green</td>
+      <td>42.0</td>
+      <td>POINT (-0.20388 51.55471)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>

@@ -329,18 +329,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">d965e6186394</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df_category</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">FOLDER_INTERIM</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">DATA_CRIME_CATEGORY</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                           <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Outcome Date&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df_pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">FOLDER_INTERIM</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">DATA_POP</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;NoneType&#39; and &#39;str&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Re-shape data so it is in the right format for plotting.</p>
 <div class="cell tag_hide-input docutils container">
@@ -384,6 +372,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/03_crime_category_5_0.png" src="../_images/03_crime_category_5_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="crime-by-category-by-year">
@@ -404,6 +395,9 @@
     <span class="n">x</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">PercentFormatter</span><span class="p">(</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03_crime_category_7_0.png" src="../_images/03_crime_category_7_0.png" />
 </div>
 </div>
 <p>Trying to do crime by year, by ward and by category gets busy so explore alternative methods - a graph database!</p>
