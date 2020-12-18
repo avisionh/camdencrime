@@ -9,11 +9,12 @@ df = pd.read_pickle(filepath_or_buffer=FOLDER_PROCESSED + "/" + DATA_CRIME_MAP)
 
 # select columns we need
 df_crime = df[["Outcome Date",
+               "Outcome Year",
                "Ward Name",
                "Category",
                "Crime Incidences",
                "Population",
-               "Crime Rate"]]
+               "Crime Rate"]].copy()
 df_crime = standardise_column_names(df=df_crime,
                                     remove_punct=True)
 
@@ -23,5 +24,5 @@ df_crime = df_crime.drop_duplicates(subset=["outcome_date",
                                             "category"])
 
 # export to csv for neo4j
-df_crime.to_csv(path_or_buf=FOLDER_PROCESSED + "/" + "df_crime.csv",
+df_crime.to_csv(path_or_buf="outputs/df_crime.csv",
                 index=False)
