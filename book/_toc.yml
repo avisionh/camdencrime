@@ -4,7 +4,8 @@
 - file: 00_intro
   numbered: true
   sections:
-    - file: 00_intro/01_data
+    - file: 00_intro/01_data_about
+    - file: 00_intro/02_data_questions
 - file: 01_eda
   sections:
     - file: 01_eda/01_missing_data
