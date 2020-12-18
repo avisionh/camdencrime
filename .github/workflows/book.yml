@@ -32,7 +32,7 @@ jobs:
     # Clear gh-pages branch cache
     - name: Clear gh-pages cache
       run: |
-        rm -rf camdencrime/gh_pages/.cache
+        rm -rf camdencrime/gh-pages/.cache
 
     # Build the book
     - name: Build the book
@@ -46,4 +46,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./book/_build/html
         keep_files: false
-        publish_branch: gh_pages
+        publish_branch: gh-pages
