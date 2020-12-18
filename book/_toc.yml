@@ -7,10 +7,10 @@
     - file: 00_intro/01_data_about
     - file: 00_intro/02_data_questions
     - file: 00_intro/03_assumptions
-- file: 01_data
+- file: 01_data_raw
   sections:
-    - file: 01_data/01_view
-    - file: 01_data/02_clean
+    - file: 01_data_raw/01_view
+    - file: 01_data_raw/02_clean
 - file: 02_eda
   sections:
     - file: 02_eda/01_missing_data
