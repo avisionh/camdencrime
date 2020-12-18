@@ -3,6 +3,8 @@
 #
 - file: 00_intro
   numbered: true
+  sections:
+    - file: 00_intro/01_data
 - file: 01_eda
   sections:
     - file: 01_eda/01_missing_data
