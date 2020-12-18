@@ -2,7 +2,9 @@
 
 Before we dive straight into analysing the data, we should speak to our users first to understand what their needs are. Doing so would ensure we are providing a tailored analysis and/or product which meets their needs. We would learn what has business value so we can spend more time on this.
 
-Hence in the absence of actual users, let's imagine we are working with the local authority of Camden who supply us with this data on crime. What are their user-needs and how could they action on these user-needs?
+![](images/ur_haiya.gif)
+
+Hence, in the absence of actual users, let's imagine we are working with the local authority of Camden who supply us with this data on crime. What are their user-needs and how could they action on these user-needs?
 
 Possible user-stories that we may get are:
 
