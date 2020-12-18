@@ -7,12 +7,11 @@ import pandas as pd
 FOLDER_RAW = os.environ.get('DIR_DATA_RAW')
 FOLDER_INTERIM = os.environ.get('DIR_DATA_INTERIM')
 DATA_CRIME = 'On_Street_Crime_In_Camden.csv'
-DATA_POP = 'Population_20Projections_20_latest_20GLA_20set_.xlsx'
-
 
 # import data
 df = pd.read_csv(filepath_or_buffer=FOLDER_RAW + "/" + DATA_CRIME,
                  parse_dates=["Outcome Date", "Epoch"])
+# from src/make_data/graph_ward.py
 df_pop = pd.read_csv(filepath_or_buffer='outputs/wards.csv')
 
 # extract year

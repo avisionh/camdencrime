@@ -6,11 +6,11 @@ FOLDER_RAW = os.getenv('DIR_DATA_RAW')
 FOLDER_PROCESSED = os.getenv('DIR_DATA_PROCESSED')
 DATA_LIGHT = 'geo_export_e87e8b43-cf73-48e4-ad5c-692f56b45394.shp'
 
-df_light = gpd.read_file(filename=FOLDER_RAW + "/camden_street_lighting/" + DATA_LIGHT)
+shp_light = gpd.read_file(filename=FOLDER_RAW + "/camden_street_lighting/" + DATA_LIGHT)
 
 # aggregate to get key info
-df_lamp = df_light.groupby(by=["ward_name", "lamp_type"]).agg(func={"street_nam": 'count',
-                                                                    "wattage": 'mean'})
+df_lamp = shp_light.groupby(by=["ward_name", "lamp_type"]).agg(func={"street_nam": 'count',
+                                                                     "wattage": 'mean'})
 df_lamp = df_lamp.reset_index()
 df_lamp = df_lamp.rename(columns={"street_nam": "count_lamps",
                                   "wattage": "mean_wattage"})
