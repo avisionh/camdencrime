@@ -29,7 +29,11 @@ df_pop = pd.melt(frame=df_pop,
 
 # standardise column names
 df_pop = standardise_column_names(df=df_pop, remove_punct=True)
-df_pop = df_pop.drop(columns=["unnamed_0"])
+
+# for entities only
+wards = df_pop["ward_name"].unique()
+wards = pd.DataFrame(data={"ward_name": wards})
 
 # export to csv
-df_pop.to_csv(path_or_buf="outputs/wards.csv", index=False)
+wards.to_csv(path_or_buf="outputs/wards.csv", index=False)
+df_pop.to_csv(path_or_buf="outputs/df_pop.csv", index=False)
